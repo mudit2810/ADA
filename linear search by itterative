@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int item , i;
+	int arr[] = {11,25,69,45,87,23,36,100,123,89};
+	cout<<"enter the item to search -";
+	cin>>item;
+	for(i=0;i<10;i++)
+	if(arr[i]==item)
+	{
+		cout<<"item found at location -"<<i+1;
+		return 0;
+    }
+	   cout<<"item not found";	
+}
