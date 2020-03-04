@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct item
+{
+	float p,w,pw;
+};
+bool cmp(item x,item y)
+{
+	return x.pw>y.pw;
+}
+void knapsack(int m,item a[],int n){
+	float x[n]={0};
+	int i;
+	float pro=0.0;
+		for(i=0;i<n;i++)
+	{
+		if(m<a[i].w)break;
+			x[i]=1;
+			m=m-a[i].w;
+			pro=pro+x[i]*a[i].p;
+	
+	}
+	if(m!=0)
+	{
+		x[i]=m/a[i].w;
+		pro=pro+x[i]*a[i].p;
+	}
+	cout<<"total profit\n"<<pro;
+}
+int main()
+{
+    int m,n;
+	cin>>m;
+	cin>>n;
+	item a[n];
+	for(int i=0;i<=n-1;i++)
+	{
+		cin>>a[i].p>>a[i].w;
+		a[i].pw=a[i].p/a[i].w;
+	
+	}
+	sort(a,a+n,cmp);
+    knapsack(m,a,n);
+
+}
